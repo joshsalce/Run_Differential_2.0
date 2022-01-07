@@ -4,6 +4,10 @@ library(ggplot2)
 library(tidyverse)
 library(dplyr)
 
+# For plotting
+install.packages("reshape2")
+library(reshape2)
+
 cont_RD = function(team, year) {
   d4t4 <- getRetrosheet("game", year)
   subject <- subset(d4t4, d4t4$HmTm == team | d4t4$VisTm == team)
@@ -31,10 +35,11 @@ rd_df1 <- as.data.frame(do.call(cbind, team_rd1))
 ## who played less games have random values instead of continuing their run differential
 ## so, you have to do it yourself
 
-print(rd_df1[162, 4]) #CHA 162 (Did not play)
-rd_df1[162, 4] = -124
-print(rd_df1[162, 6]) # DET 162 (Did not play)
-rd_df1[162, 6] = -333
+# Ignore
+#print(rd_df1[162, 4]) #CHA 162 (Did not play)
+#rd_df1[162, 4] = -124
+#print(rd_df1[162, 6]) # DET 162 (Did not play)
+#rd_df1[162, 6] = -333
 
 ## WORKS PERFECTLY
 team_rd2 <- vector(mode = "list", length = 30)
@@ -56,10 +61,6 @@ rd_df2 = as.data.frame(do.call(cbind, team_rd2))
 
 
 ##################Plotting Time
-
-install.packages("reshape2")
-library(reshape2)
-
 rd_df2_plot<- data.frame(x = 1:nrow(rd_df2),                            # Reshape data frame
                         y = c(rd_df2$ANA,rd_df2$BAL,rd_df2$BOS,rd_df2$CHA,rd_df2$CLE,
                               rd_df2$DET,rd_df2$HOU,rd_df2$KCA,rd_df2$MIN,rd_df2$NYA,
