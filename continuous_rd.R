@@ -87,8 +87,24 @@ rd_df2_plot<- data.frame(x = 1:nrow(rd_df2),
                                   rep("PIT", nrow(rd_df2)), rep("SFN", nrow(rd_df2)),
                                   rep("SLN", nrow(rd_df2)), rep("WAS", nrow(rd_df2))))
 
+group.colors = c(ANA = "#ba0021", BAL = '#df4601', BOS = '#bd3039', 
+                 CHA = '#000000', CLE = '#e31937', DET = '#182d55', 
+                 HOU = '#f4911e', KCA = '#004687', MIN = '#cfac7a', 
+                 NYA = '#c4ced3', OAK = '#115740', SEA = '#005C5C', 
+                 TBA = '#8fbce6', TEX = '#003278', TOR = '#134a8e', 
+                 ARI = '#a71930', ATL = '#eaaa00', CHN = '#0e3386', 
+                 CIN = '#c6011f', COL = '#33006f', LAN = '#005a9c', 
+                 SDN = '#FFC425', MIA = '#ff6600', MIL = '#FFC52F', 
+                 NYN = '#ff5910', PHI = '#e81828', PIT = '#fdb827', 
+                 SFN = '#fd5a1e', SLN = '#22205f', WAS = '#ab0003')
 
-rd_plot <- ggplot(rd_df2_plot, aes(x, y, color = group)) + geom_line()
-rd_plot + ggtitle("Run Differential Distribution") + xlab("Games Played") + ylab("Run Differential")
+rd_plot <- ggplot(rd_df2_plot, aes(x = x, y = y, group = group)) + 
+  geom_line(aes(color=group)) +
+  scale_color_manual(values = group.colors)
 
+rd_plot + ggtitle("Run Differential Distribution") + 
+  xlab("Games Played") + 
+  ylab("Run Differential")
+  
 ##FIN
+
