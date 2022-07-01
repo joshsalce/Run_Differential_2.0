@@ -4,4 +4,4 @@ As mentioned in my 1.0 version of this application, I kept going on this project
 
 Example: All 30 MLB Teams' Run Differentials from the 2019 season
 
-![All](https://user-images.githubusercontent.com/65614069/148474129-d84ce0fd-6f63-49cc-a5f7-d5c3cad9dca8.png)
+![All](https://github.com/joshsalce/Run_Differential_2.0/blob/main/Final.jpeg)
